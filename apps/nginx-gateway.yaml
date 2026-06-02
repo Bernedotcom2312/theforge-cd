@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-gateway-fabric
+  name: nginx-gateway
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,6 +15,7 @@ spec:
     targetRevision: 2.6.3
     helm:
       releaseName: nginx-gateway-fabric
+      skipCrds: false
   destination:
     server: https://kubernetes.default.svc
     namespace: nginx-gateway
