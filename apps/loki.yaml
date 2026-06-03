@@ -37,6 +37,12 @@ spec:
           replicas: 1
           persistence:
             size: 10Gi
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              memory: 1Gi
         read:
           replicas: 0
         write:

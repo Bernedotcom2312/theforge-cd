@@ -18,6 +18,12 @@ spec:
         grafana:
           enabled: true
           adminPassword: admin
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              memory: 512Mi
           service:
             type: ClusterIP
           additionalDataSources:
@@ -42,7 +48,7 @@ spec:
         kubeStateMetrics:
           enabled: true
         nodeExporter:
-          enabled: true
+          enabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
