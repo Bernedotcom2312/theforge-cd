@@ -44,7 +44,14 @@ spec:
                 memory: 512Mi
               limits:
                 memory: 2Gi
-            storageSpec: {}
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  accessModes:
+                    - ReadWriteOnce
+                  resources:
+                    requests:
+                      storage: 20Gi
         alertmanager:
           enabled: true
         kubeStateMetrics:
